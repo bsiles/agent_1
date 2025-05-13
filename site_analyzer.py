@@ -820,38 +820,154 @@ class SiteAnalyzer:
                 })
         return team_members
 
+    def extract_contact_info(self, soup: BeautifulSoup) -> dict:
+        """Extract contact information including location, phone, email, and mailing address."""
+        contact_info = {
+            'location': None,
+            'phone': None,
+            'email': None,
+            'mailing_address': None
+        }
+        
+        # Common patterns for contact information
+        phone_pattern = r'(?:\+\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}'
+        email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+        address_pattern = r'\d+\s+[A-Za-z\s,]+(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Circle|Cir|Way|Place|Pl|Square|Sq)[,\s]+[A-Za-z\s]+,\s*[A-Z]{2}\s*\d{5}(?:-\d{4})?'
+        
+        # Look for contact information in specific sections
+        contact_sections = []
+        
+        # 1. Look for contact-specific sections
+        contact_sections.extend(soup.find_all(['div', 'section', 'footer'], class_=re.compile(r'contact|footer|address|location|office', re.I)))
+        
+        # 2. Look for contact information in meta tags
+        meta_contact = soup.find('meta', attrs={'name': re.compile(r'contact|address|location', re.I)})
+        if meta_contact and meta_contact.get('content'):
+            contact_sections.append(meta_contact)
+            
+        # 3. Look for contact information in structured data
+        for script in soup.find_all('script', type='application/ld+json'):
+            try:
+                data = json.loads(script.string)
+                if isinstance(data, dict) and 'address' in data:
+                    contact_sections.append(script)
+            except:
+                continue
+                
+        # 4. Look for contact information in specific elements
+        contact_elements = soup.find_all(['p', 'div', 'span'], string=re.compile(r'contact|address|location|phone|email|tel:', re.I))
+        contact_sections.extend(contact_elements)
+        
+        # If no specific sections found, search the whole page
+        if not contact_sections:
+            contact_sections = [soup]
+            
+        for section in contact_sections:
+            text = section.get_text(separator=' ', strip=True)
+            
+            # Extract phone number
+            if not contact_info['phone']:
+                # Look for phone in href="tel:" links
+                tel_links = section.find_all('a', href=re.compile(r'^tel:'))
+                if tel_links:
+                    phone = tel_links[0]['href'].replace('tel:', '').strip()
+                    contact_info['phone'] = phone
+                else:
+                    # Look for phone in text
+                    phone_match = re.search(phone_pattern, text)
+                    if phone_match:
+                        contact_info['phone'] = phone_match.group(0)
+            
+            # Extract email
+            if not contact_info['email']:
+                # Look for email in href="mailto:" links
+                mail_links = section.find_all('a', href=re.compile(r'^mailto:'))
+                if mail_links:
+                    email = mail_links[0]['href'].replace('mailto:', '').strip()
+                    contact_info['email'] = email
+                else:
+                    # Look for email in text
+                    email_match = re.search(email_pattern, text)
+                    if email_match:
+                        contact_info['email'] = email_match.group(0)
+            
+            # Extract address
+            if not contact_info['mailing_address']:
+                # Look for address in structured data
+                if section.name == 'script' and section.get('type') == 'application/ld+json':
+                    try:
+                        data = json.loads(section.string)
+                        if isinstance(data, dict) and 'address' in data:
+                            addr = data['address']
+                            if isinstance(addr, dict):
+                                address_parts = []
+                                for key in ['streetAddress', 'addressLocality', 'addressRegion', 'postalCode']:
+                                    if key in addr:
+                                        address_parts.append(str(addr[key]))
+                                if address_parts:
+                                    contact_info['mailing_address'] = ', '.join(address_parts)
+                    except:
+                        pass
+                
+                # Look for address in text
+                if not contact_info['mailing_address']:
+                    address_match = re.search(address_pattern, text)
+                    if address_match:
+                        contact_info['mailing_address'] = address_match.group(0)
+            
+            # Look for location in specific elements
+            if not contact_info['location']:
+                location_elements = section.find_all(['p', 'div', 'span'], string=re.compile(r'location|address|headquarters|office', re.I))
+                for element in location_elements:
+                    text = element.get_text(strip=True)
+                    if len(text) > 10 and len(text) < 200:  # Reasonable length for a location
+                        contact_info['location'] = text
+                        break
+        
+        # Clean up the results
+        for key in contact_info:
+            if contact_info[key]:
+                # Remove any HTML tags that might have been included
+                contact_info[key] = re.sub(r'<[^>]+>', '', contact_info[key])
+                # Clean up whitespace
+                contact_info[key] = ' '.join(contact_info[key].split())
+        
+        return contact_info
+
     def analyze_site(self, url: str) -> dict:
         """Analyze a website and return structured data."""
         try:
             url = self.normalize_url(url)
-            print("\nStep 1/9: Loading page...")
+            print("\nStep 1/10: Loading page...")
             self.driver.get(url)
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
-            print("Step 2/9: Parsing page content...")
+            print("Step 2/10: Parsing page content...")
             page_source = self.driver.page_source
             soup = BeautifulSoup(page_source, 'html.parser')
-            print("Step 3/9: Extracting basic information...")
+            print("Step 3/10: Extracting basic information...")
             company_name = self.extract_company_name(soup, url)
             description = self.extract_company_description(soup)
             tagline = self.generate_tagline(description, company_name)
             industry_niche = self.determine_industry_niche(soup, description)
             personality = self.extract_company_personality(description, company_name)
-            print("Step 4/9: Analyzing main content...")
+            print("Step 4/10: Analyzing main content...")
             main_content = self.extract_main_content(soup)
-            print("Step 5/9: Crawling site...")
+            print("Step 5/10: Crawling site...")
             crawl_data = self.crawl_site(url)
-            print("Step 6/9: Extracting key services...")
+            print("Step 6/10: Extracting key services...")
             key_services = self.extract_key_services(description, company_name, main_content)
-            print("Step 7/9: Extracting team information...")
+            print("Step 7/10: Extracting team information...")
             team_info = self.extract_team_info(soup, url)
-            print("Step 8/9: Analyzing additional aspects...")
+            print("Step 8/10: Extracting contact information...")
+            contact_info = self.extract_contact_info(soup)
+            print("Step 9/10: Analyzing additional aspects...")
             social_media = self.analyze_social_media(soup)
             tech_stack = self.analyze_tech_stack(soup)
             color_scheme = self.extract_brand_colors(soup)
             testimonials = self.extract_testimonials(soup)
-            print("Step 9/9: Finalizing analysis...")
+            print("Step 10/10: Finalizing analysis...")
             return {
                 'url': url,
                 'company_name': company_name,
@@ -861,6 +977,7 @@ class SiteAnalyzer:
                 'personality': personality,
                 'key_services': key_services,
                 'team_members': team_info,
+                'contact_info': contact_info,
                 'social_media': social_media,
                 'tech_stack': tech_stack,
                 'color_scheme': color_scheme,
@@ -1015,6 +1132,17 @@ def main():
                 print("\nTeam Members:")
                 for member in results['team_members']:
                     print(f"- {member['name']} ({member['role']})")
+            
+            if results.get('contact_info'):
+                print("\nContact Information:")
+                if results['contact_info']['location']:
+                    print(f"Location: {results['contact_info']['location']}")
+                if results['contact_info']['phone']:
+                    print(f"Phone: {results['contact_info']['phone']}")
+                if results['contact_info']['email']:
+                    print(f"Email: {results['contact_info']['email']}")
+                if results['contact_info']['mailing_address']:
+                    print(f"Mailing Address: {results['contact_info']['mailing_address']}")
             
             print(f"\nAnalysis completed at: {results['analysis_date']}")
             
