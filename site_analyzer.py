@@ -146,17 +146,68 @@ class SiteAnalyzer:
 
     # ---------- Name --------------------------------------------------- #
     def extract_company_name(self, soup: BeautifulSoup, url: str) -> str:
-        # Try to find company name from title
+        """Extract company name from the page content using multiple methods."""
+        # Method 1: Try to find company name from meta tags
+        meta_tags = [
+            ('meta', {'property': 'og:site_name'}),
+            ('meta', {'name': 'application-name'}),
+            ('meta', {'name': 'publisher'}),
+            ('meta', {'property': 'og:title'}),
+        ]
+        
+        for tag, attrs in meta_tags:
+            meta = soup.find(tag, attrs=attrs)
+            if meta and meta.get('content'):
+                name = meta['content'].strip()
+                if name and len(name) > 3:  # Avoid very short names
+                    return name
+
+        # Method 2: Look for company name in header/logo
+        header = soup.find(['header', 'nav']) or soup.find(class_=re.compile(r'header|nav|logo', re.I))
+        if header:
+            # Look for logo alt text
+            logo = header.find('img', alt=True)
+            if logo and logo['alt']:
+                name = logo['alt'].strip()
+                if name and len(name) > 3:
+                    return name
+            
+            # Look for company name in header text
+            header_text = header.get_text(separator=' ', strip=True)
+            if header_text:
+                # Try to find a name that looks like a company name
+                name_match = re.search(r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,4}(?:\s+(?:LLC|Inc|Ltd|LLP|APC|PC|Corp|Corporation|Company|Co|Law|Office|Group|Associates|Partners|Services))?)', header_text)
+                if name_match:
+                    return name_match.group(1).strip()
+
+        # Method 3: Look for company name in main content
+        main = soup.find('main') or soup.find('article') or soup.find(class_=re.compile(r'main|content|container', re.I))
+        if main:
+            # Look for company name in first paragraph
+            first_p = main.find('p')
+            if first_p:
+                text = first_p.get_text(separator=' ', strip=True)
+                name_match = re.search(r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,4}(?:\s+(?:LLC|Inc|Ltd|LLP|APC|PC|Corp|Corporation|Company|Co|Law|Office|Group|Associates|Partners|Services))?)', text)
+                if name_match:
+                    return name_match.group(1).strip()
+
+        # Method 4: Try to find company name from title
         title = soup.title.string if soup.title else ""
         if title:
             # Remove common suffixes and clean up
             name = re.sub(r'\s*[-|]\s*.*$', '', title)
             name = re.sub(r'\s*-\s*.*$', '', name)
-            return name.strip()
+            # Remove any parenthetical descriptions
+            name = re.sub(r'\s*\(.*?\)', '', name)
+            # Remove any "Technical Services" or similar suffixes
+            name = re.sub(r'\s*Technical\s*Services.*$', '', name, flags=re.IGNORECASE)
+            if name and len(name) > 3:
+                return name.strip()
             
-        # Fallback to domain name
+        # Method 5: Fallback to domain name
         domain = urlparse(url).netloc
-        return domain.replace('www.', '').split('.')[0].title()
+        name = domain.replace('www.', '').split('.')[0].title()
+        return name
 
     # ---------- Description ------------------------------------------- #
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
@@ -236,26 +287,29 @@ class SiteAnalyzer:
     def determine_industry_niche(self, soup: BeautifulSoup, description: str) -> str:
         # Common industry keywords and their niches
         industry_keywords = {
-            'restaurant': 'Food Service',
-            'hotel': 'Hospitality',
-            'law': 'Legal Services',
-            'medical': 'Healthcare',
-            'dental': 'Healthcare',
-            'real estate': 'Real Estate',
-            'construction': 'Construction',
-            'retail': 'Retail',
-            'technology': 'Technology',
-            'education': 'Education',
-            'fitness': 'Health & Fitness',
-            'beauty': 'Beauty & Wellness',
-            'automotive': 'Automotive',
-            'financial': 'Financial Services',
-            'insurance': 'Insurance',
-            'manufacturing': 'Manufacturing',
-            'consulting': 'Business Consulting',
-            'marketing': 'Marketing & Advertising',
-            'design': 'Design & Creative',
-            'software': 'Software Development'
+            'restaurant': 'Food & Beverage Service',
+            'hotel': 'Hospitality & Tourism',
+            'law': 'Legal & Professional Services',
+            'medical': 'Healthcare & Medical Services',
+            'dental': 'Healthcare & Dental Services',
+            'real estate': 'Real Estate & Property',
+            'construction': 'Construction & Development',
+            'retail': 'Retail & Consumer Goods',
+            'technology': 'Technology & Software Development',
+            'education': 'Education & Training',
+            'fitness': 'Health & Fitness Services',
+            'beauty': 'Beauty & Wellness Products',
+            'automotive': 'Automotive & Transportation',
+            'financial': 'Financial & Investment Services',
+            'insurance': 'Insurance & Risk Management',
+            'manufacturing': 'Manufacturing & Production',
+            'consulting': 'Business & Management Consulting',
+            'marketing': 'Marketing & Digital Advertising',
+            'design': 'Design & Creative Services',
+            'software': 'Software & Technology Solutions',
+            'documentation': 'Technical & Documentation Services',
+            'writing': 'Content & Technical Writing',
+            'training': 'Professional & Technical Training'
         }
         
         text = description.lower()
@@ -263,7 +317,7 @@ class SiteAnalyzer:
             if keyword in text:
                 return niche
                 
-        return "General Business"
+        return "Business & Professional Services"
 
     # ---------- Personality -------------------------------------------- #
     def extract_company_personality(self, description: str, company_name: str) -> str:
@@ -302,7 +356,7 @@ class SiteAnalyzer:
         all_html: list[str] = []
         all_text: list[str] = []
         urls_visited: list[str] = []
-        max_pages = 5  # Limit total pages to crawl
+        max_pages = 10  # Increased from 5 to 10 pages
         
         print("\nCrawling pages...")
         
@@ -334,7 +388,8 @@ class SiteAnalyzer:
 
             # Only follow links if we haven't hit the page limit
             if lvl < depth and len(visited) < max_pages:
-                # Prioritize contact/about pages
+                # Prioritize team/about pages
+                team_links = []
                 contact_links = []
                 other_links = []
                 
@@ -348,13 +403,17 @@ class SiteAnalyzer:
                     if urlparse(nxt).netloc != urlparse(url).netloc:
                         continue
                         
-                    # Check if it's a contact/about page
-                    if any(x in nxt.lower() for x in ['contact', 'about', 'info']):
+                    # Check if it's a team/about page
+                    if any(x in nxt.lower() for x in ['team', 'about', 'attorney', 'lawyer', 'staff']):
+                        team_links.append(nxt)
+                    # Check if it's a contact page
+                    elif any(x in nxt.lower() for x in ['contact', 'info']):
                         contact_links.append(nxt)
                     else:
                         other_links.append(nxt)
                 
-                # Add contact links first, then other links
+                # Add team links first, then contact links, then other links
+                queue.extend((link, lvl + 1) for link in team_links)
                 queue.extend((link, lvl + 1) for link in contact_links)
                 queue.extend((link, lvl + 1) for link in other_links)
 
@@ -641,49 +700,158 @@ class SiteAnalyzer:
         # Select primary and secondary colors
         return self.select_primary_secondary(candidates)
 
+    def extract_testimonials(self, soup: BeautifulSoup) -> list:
+        """Extract customer testimonials from the page."""
+        testimonials = []
+        seen_texts = set()  # Track unique testimonials
+
+        testimonial_selectors = [
+            'blockquote',
+            '[class*="testimonial"]',
+            '[class*="review"]',
+            '[class*="quote"]',
+            '[class*="feedback"]',
+            '[id*="testimonial"]',
+            '[id*="review"]',
+        ]
+
+        marketing_patterns = [
+            r'shop now', r'learn more', r'discover', r'explore', r'our products', r'our services',
+            r'your favorite', r'grow with you', r'personal evolution', r'limited edition', r'exclusive',
+            r'new collection', r'best selling', r'featured', r'popular',
+        ]
+
+        for selector in testimonial_selectors:
+            elements = soup.select(selector)
+            for element in elements:
+                text = element.get_text(separator=' ', strip=True)
+                if not text:
+                    continue
+                if any(re.search(pattern, text.lower()) for pattern in marketing_patterns):
+                    continue
+                if not re.search(r'[""\'"]', text):
+                    continue
+                words = text.split()
+                if len(words) < 5 or len(words) > 100:
+                    continue
+                text_hash = hashlib.md5(text.lower().encode()).hexdigest()
+                if text_hash in seen_texts:
+                    continue
+                seen_texts.add(text_hash)
+
+                # Extract the main quoted text
+                quote_match = re.search(r'[""\'"](.+?)[""\'"]', text)
+                if quote_match:
+                    quote = quote_match.group(1).strip()
+                else:
+                    # Fallback: use the whole text if no quotes found
+                    quote = text.strip()
+
+                # Try to extract author: look for dash or new line at the end
+                author = None
+                author_match = re.search(r'[-–—]\s*([A-Za-z .,&]+)\s*$', text)
+                if author_match and len(author_match.group(1).split()) <= 8:
+                    author = author_match.group(1).strip()
+                else:
+                    # Try splitting on last line if it's short
+                    lines = text.strip().split('\n')
+                    if len(lines) > 1 and len(lines[-1].split()) <= 8:
+                        author = lines[-1].strip()
+
+                # Clean up quote
+                quote = re.sub(r'\s+', ' ', quote).strip()
+                if quote and len(quote.split()) >= 5:
+                    testimonials.append({
+                        'text': quote,
+                        'author': author,
+                        'company': None
+                    })
+        return testimonials
+
+    def extract_team_info(self, soup: BeautifulSoup, base_url: str) -> list:
+        """Extract team member info directly from the team/about page, filtering out navigation and accessibility links and requiring valid roles. Only return name and role."""
+        team_members = []
+        seen_names = set()
+        valid_role_keywords = [
+            'attorney', 'lawyer', 'paralegal', 'manager', 'staff', 'case manager', 'associate', 'esq', 'counsel', 'assistant', 'director', 'partner', 'founder', 'principal', 'owner', 'administrator', 'coordinator', 'advisor', 'consultant'
+        ]
+        # Selectors for team/attorney/staff pages
+        team_selectors = [
+            '[class*="team"]', '[class*="staff"]', '[class*="about"]', '[class*="people"]',
+            '[class*="attorney"]', '[class*="lawyer"]', '[id*="team"]', '[id*="staff"]',
+            '[id*="about"]', '[id*="people"]', '[id*="attorney"]', '[id*="lawyer"]',
+            'section.about', 'section.team', 'div.about', 'div.team', 'article.about', 'article.team'
+        ]
+        # Find team section(s)
+        team_sections = []
+        for selector in team_selectors:
+            team_sections.extend(soup.select(selector))
+        # If no team section, fallback to whole page
+        if not team_sections:
+            team_sections = [soup]
+        # Direct extraction from team sections
+        for section in team_sections:
+            # Find all names in bold/strong/headers
+            for el in section.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'b']):
+                name = el.get_text(strip=True)
+                if not name or len(name.split()) < 2 or len(name) < 4:
+                    continue
+                name_hash = hashlib.md5(name.lower().encode()).hexdigest()
+                if name_hash in seen_names:
+                    continue
+                # Try to find role in next sibling or same line
+                role = None
+                sib = el.find_next_sibling()
+                if sib and sib.name in ['em', 'i', 'span', 'small']:
+                    role = sib.get_text(strip=True)
+                if not role:
+                    # Try to find role in text after name
+                    text = el.parent.get_text(" ", strip=True)
+                    after = text.replace(name, '').strip(' ,-|')
+                    if 2 < len(after) < 60:
+                        role = after
+                # Require both name and role, and role must contain a valid keyword
+                if not role or not any(k in role.lower() for k in valid_role_keywords):
+                    continue
+                seen_names.add(name_hash)
+                team_members.append({
+                    'name': name,
+                    'role': role
+                })
+        return team_members
+
     def analyze_site(self, url: str) -> dict:
         """Analyze a website and return structured data."""
         try:
             url = self.normalize_url(url)
-            print("\nStep 1/8: Loading page...")
-            # Load the page
+            print("\nStep 1/9: Loading page...")
             self.driver.get(url)
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
-            
-            print("Step 2/8: Parsing page content...")
-            # Get the page source and create BeautifulSoup object
+            print("Step 2/9: Parsing page content...")
             page_source = self.driver.page_source
             soup = BeautifulSoup(page_source, 'html.parser')
-            
-            print("Step 3/8: Extracting basic information...")
-            # Extract basic information
+            print("Step 3/9: Extracting basic information...")
             company_name = self.extract_company_name(soup, url)
             description = self.extract_company_description(soup)
             tagline = self.generate_tagline(description, company_name)
             industry_niche = self.determine_industry_niche(soup, description)
             personality = self.extract_company_personality(description, company_name)
-            
-            print("Step 4/8: Analyzing main content...")
-            # Get main content for detailed analysis
+            print("Step 4/9: Analyzing main content...")
             main_content = self.extract_main_content(soup)
-            
-            print("Step 5/8: Crawling site...")
-            # Crawl the site and get aggregated data
+            print("Step 5/9: Crawling site...")
             crawl_data = self.crawl_site(url)
-            
-            print("Step 6/8: Extracting key services...")
-            # Extract additional insights using full crawl data
+            print("Step 6/9: Extracting key services...")
             key_services = self.extract_key_services(description, company_name, main_content)
-            
-            print("Step 7/8: Analyzing additional aspects...")
-            # Analyze additional aspects
+            print("Step 7/9: Extracting team information...")
+            team_info = self.extract_team_info(soup, url)
+            print("Step 8/9: Analyzing additional aspects...")
             social_media = self.analyze_social_media(soup)
             tech_stack = self.analyze_tech_stack(soup)
             color_scheme = self.extract_brand_colors(soup)
-            
-            print("Step 8/8: Finalizing analysis...")
+            testimonials = self.extract_testimonials(soup)
+            print("Step 9/9: Finalizing analysis...")
             return {
                 'url': url,
                 'company_name': company_name,
@@ -692,9 +860,11 @@ class SiteAnalyzer:
                 'industry_niche': industry_niche,
                 'personality': personality,
                 'key_services': key_services,
+                'team_members': team_info,
                 'social_media': social_media,
                 'tech_stack': tech_stack,
                 'color_scheme': color_scheme,
+                'testimonials': testimonials,
                 'analysis_date': datetime.now().isoformat()
             }
         except Exception as e:
@@ -831,6 +1001,20 @@ def main():
                 print("\nColor Scheme:")
                 print(f"Primary Color: {results['color_scheme']['primary_color']}")
                 print(f"Secondary Color: {results['color_scheme']['secondary_color']}")
+            
+            if results.get('testimonials'):
+                print("\nCustomer Testimonials:")
+                for testimonial in results['testimonials']:
+                    print(f"\n\"{testimonial['text']}\"")
+                    if testimonial.get('author'):
+                        print(f"- {testimonial['author']}")
+                    if testimonial.get('company'):
+                        print(f"  {testimonial['company']}")
+            
+            if results.get('team_members'):
+                print("\nTeam Members:")
+                for member in results['team_members']:
+                    print(f"- {member['name']} ({member['role']})")
             
             print(f"\nAnalysis completed at: {results['analysis_date']}")
             
