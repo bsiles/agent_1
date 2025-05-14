@@ -1,0 +1,73 @@
+{
+  "broken_links": {
+    "502": [
+      {
+        "url": "https://www.homestop.us/services/siding",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://www.homestop.us/services/patios-and-pergolas",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://www.homestop.us/gallery",
+        "is_internal": true,
+        "redirect_chain": null
+      }
+    ],
+    "403": [
+      {
+        "url": "https://x.com/HomeStopInc",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://www.tiktok.com/@homestopinc?is_from_webapp=1&sender_device=pc",
+        "is_internal": false,
+        "redirect_chain": null
+      }
+    ]
+  },
+  "redirect_chains": {
+    "http://www.corporate.homestop.us": {
+      "chain": [
+        "http://www.corporate.homestop.us/",
+        "https://www.corporate.homestop.us/",
+        "https://corporate.homestop.us/"
+      ],
+      "count": 2,
+      "latency": 0.4544718265533447,
+      "final_status": 200
+    },
+    "https://www.homestop.us/services/windows-and-exteriors": {
+      "chain": [
+        "https://www.homestop.us/services/windows-and-exteriors",
+        "https://www.homestop.us/services/blank-7"
+      ],
+      "count": 1,
+      "latency": 2.0646772384643555,
+      "final_status": 200
+    },
+    "https://www.linkedin.com/company/homestop-inc/about/": {
+      "chain": [
+        "https://www.linkedin.com/company/homestop-inc/about/",
+        "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fhomestop-inc%2Fabout%2F"
+      ],
+      "count": 1,
+      "latency": 0.4504120349884033,
+      "final_status": 200
+    },
+    "https://americaneaglebuilders.com/": {
+      "chain": [
+        "https://americaneaglebuilders.com/",
+        "https://www.americaneaglebuilders.com/"
+      ],
+      "count": 1,
+      "latency": 3.306727886199951,
+      "final_status": 200
+    }
+  },
+  "sitemap_issues": []
+}

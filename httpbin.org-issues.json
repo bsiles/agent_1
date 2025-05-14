@@ -1,0 +1,9 @@
+{
+  "crawl_issues_summary": {
+    "urls_missing_meta_description": 1,
+    "urls_missing_h1": 1
+  },
+  "canonical_issues_summary": {
+    "missing_canonical": 1
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "url": "https://httpbin.org",
+  "indexability": {
+    "robots_txt_allowed": true,
+    "meta_robots": "index,follow",
+    "canonical": "https://httpbin.org",
+    "canonical_self_referencing": true,
+    "noindex_reason": null,
+    "canonical_issues": [
+      "missing_canonical"
+    ]
+  },
+  "metadata": {
+    "title_tag": "httpbin.org",
+    "meta_description": "",
+    "h_tags": {
+      "h2": [
+        "httpbin.org0.9.2",
+        "Other Utilities"
+      ],
+      "h4": [
+        "HTTP MethodsTesting different HTTP verbs",
+        "AuthAuth methods",
+        "Status codesGenerates responses with given status code",
+        "Request inspectionInspect the request data",
+        "Response inspectionInspect the response data like caching and headers",
+        "Response formatsReturns responses in different data formats",
+        "Dynamic dataGenerates random and dynamic data",
+        "CookiesCreates, reads and deletes Cookies",
+        "ImagesReturns different image formats",
+        "RedirectsReturns different redirect responses",
+        "AnythingReturns anything that is passed to request"
+      ],
+      "h1": []
+    },
+    "images": []
+  }
+}

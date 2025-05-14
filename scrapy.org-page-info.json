@@ -1,0 +1,59 @@
+{
+  "url": "https://scrapy.org",
+  "indexability": {
+    "robots_txt_allowed": true,
+    "meta_robots": "index,follow",
+    "canonical": "https://scrapy.org",
+    "canonical_self_referencing": true,
+    "noindex_reason": null,
+    "canonical_issues": [
+      "missing_canonical"
+    ]
+  },
+  "metadata": {
+    "title_tag": "Scrapy | A Fast and Powerful Scraping and Web Crawling Framework",
+    "meta_description": "",
+    "h_tags": {
+      "h2": [
+        "Healthy community",
+        "Want to know more?"
+      ],
+      "h3": [
+        "Fast and powerful",
+        "Easily extensible",
+        "Portable, Python"
+      ],
+      "h1": []
+    },
+    "images": [
+      {
+        "src": "https://q.quora.com/_/ad/d3cdc58cc507450a97a918ffd749d99a/pixel?tag=ViewContent&noscript=1",
+        "alt_text": ""
+      },
+      {
+        "src": "https://www.facebook.com/tr?id=1087285701470339&ev=PageView&noscript=1",
+        "alt_text": ""
+      },
+      {
+        "src": "https://px.ads.linkedin.com/collect/?pid=610825&fmt=gif",
+        "alt_text": ""
+      },
+      {
+        "src": "https://img.shields.io/pypi/v/Scrapy.svg",
+        "alt_text": "PyPI Version"
+      },
+      {
+        "src": "https://img.shields.io/badge/wheel-yes-brightgreen.svg",
+        "alt_text": "Wheel Status"
+      },
+      {
+        "src": "https://img.shields.io/codecov/c/github/scrapy/scrapy/master.svg",
+        "alt_text": "Coverage report"
+      },
+      {
+        "src": "https://anaconda.org/conda-forge/scrapy/badges/version.svg",
+        "alt_text": "Conda forge"
+      }
+    ]
+  }
+}

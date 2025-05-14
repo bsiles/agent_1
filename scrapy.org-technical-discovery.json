@@ -1,0 +1,1399 @@
+{
+  "broken_links": {
+    "400": [
+      {
+        "url": "https://anaconda.org/conda-forge/scrapy",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://anaconda.org/conda-forge/scrapy",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://anaconda.org/conda-forge/scrapy",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://anaconda.org/conda-forge/scrapy",
+        "is_internal": false,
+        "redirect_chain": null
+      }
+    ],
+    "403": [
+      {
+        "url": "https://twitter.com/ScrapyProject",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "http://twitter.com/bfirsh/status/8025368963",
+        "is_internal": false,
+        "redirect_chain": {
+          "chain": [
+            "http://twitter.com/bfirsh/status/8025368963",
+            "https://twitter.com/bfirsh/status/8025368963"
+          ],
+          "count": 1,
+          "latency": 0.2782399654388428,
+          "final_status": 403
+        }
+      },
+      {
+        "url": "http://www.careerbuilder.com/",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://twitter.com/rajatgarg79/status/508132805440581632",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://twitter.com/allogarage/status/740841899880222720",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://twitter.com/sajithmohanvk/status/779291146568798208",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "http://twitter.com/ScrapyProject",
+        "is_internal": false,
+        "redirect_chain": {
+          "chain": [
+            "http://twitter.com/ScrapyProject",
+            "https://twitter.com/ScrapyProject"
+          ],
+          "count": 1,
+          "latency": 0.30305910110473633,
+          "final_status": 403
+        }
+      },
+      {
+        "url": "http://twitter.com/ScrapyProject",
+        "is_internal": false,
+        "redirect_chain": {
+          "chain": [
+            "http://twitter.com/ScrapyProject",
+            "https://twitter.com/ScrapyProject"
+          ],
+          "count": 1,
+          "latency": 0.1486349105834961,
+          "final_status": 403
+        }
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/overview.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/install.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/tutorial.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/examples.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/commands.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/spiders.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/selectors.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/items.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/loaders.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/shell.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/item-pipeline.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/feed-exports.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/request-response.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/link-extractors.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/settings.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/exceptions.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/logging.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/stats.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/email.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/telnetconsole.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/faq.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/debug.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/contracts.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/practices.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/broad-crawls.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/developer-tools.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/dynamic-content.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/leaks.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/media-pipeline.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/deploy.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/autothrottle.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/benchmarking.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/jobs.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/coroutines.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/asyncio.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/architecture.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/addons.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/downloader-middleware.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/spider-middleware.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/extensions.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/signals.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/scheduler.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/exporters.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/components.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/api.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/news.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/contributing.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/versioning.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/_sources/index.rst.txt",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/faq.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/genindex.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/py-modindex.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/overview.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/install.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/tutorial.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/examples.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/commands.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/spiders.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/selectors.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/shell.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/items.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/loaders.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/item-pipeline.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/feed-exports.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/request-response.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/link-extractors.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/settings.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/settings.html#topics-settings-ref",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/exceptions.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/logging.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/stats.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/email.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/telnetconsole.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/faq.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/debug.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/contracts.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/practices.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/broad-crawls.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/developer-tools.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/dynamic-content.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/leaks.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/media-pipeline.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/deploy.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/autothrottle.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/benchmarking.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/jobs.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/coroutines.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/asyncio.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/architecture.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/addons.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/downloader-middleware.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/spider-middleware.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/extensions.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/signals.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/scheduler.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/exporters.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/components.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/topics/api.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/news.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/contributing.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/versioning.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/overview.html",
+        "is_internal": true,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://scrapy.org/doc/intro/overview.html",
+        "is_internal": true,
+        "redirect_chain": null
+      }
+    ]
+  },
+  "redirect_chains": {
+    "http://docs.scrapy.org/en/latest/faq.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/faq.html",
+        "https://docs.scrapy.org/en/latest/faq.html"
+      ],
+      "count": 1,
+      "latency": 0.19756603240966797,
+      "final_status": 200
+    },
+    "https://codecov.io/github/scrapy/scrapy?branch=master": {
+      "chain": [
+        "https://codecov.io/github/scrapy/scrapy?branch=master",
+        "https://app.codecov.io/github/scrapy/scrapy?branch=master"
+      ],
+      "count": 1,
+      "latency": 0.32204484939575195,
+      "final_status": 200
+    },
+    "http://stackoverflow.com/tags/scrapy/info": {
+      "chain": [
+        "http://stackoverflow.com/tags/scrapy/info",
+        "https://stackoverflow.com/tags/scrapy/info"
+      ],
+      "count": 1,
+      "latency": 0.39911317825317383,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/latest/intro/overview.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/intro/overview.html",
+        "https://docs.scrapy.org/en/latest/intro/overview.html"
+      ],
+      "count": 1,
+      "latency": 0.09620928764343262,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/latest/intro/install.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/intro/install.html",
+        "https://docs.scrapy.org/en/latest/intro/install.html"
+      ],
+      "count": 1,
+      "latency": 0.18747973442077637,
+      "final_status": 200
+    },
+    "http://doc.scrapy.org/en/latest/intro/install.html#pre-requisites": {
+      "chain": [
+        "http://doc.scrapy.org/en/latest/intro/install.html#pre-requisites",
+        "https://doc.scrapy.org/en/latest/intro/install.html#pre-requisites"
+      ],
+      "count": 1,
+      "latency": 0.5596861839294434,
+      "final_status": 200
+    },
+    "https://github.com/scrapy/scrapy/archive/master.tar.gz": {
+      "chain": [
+        "https://github.com/scrapy/scrapy/archive/master.tar.gz",
+        "https://codeload.github.com/scrapy/scrapy/tar.gz/refs/heads/master"
+      ],
+      "count": 1,
+      "latency": 0.3673241138458252,
+      "final_status": 200
+    },
+    "https://github.com/scrapy/scrapy/archive/master.zip": {
+      "chain": [
+        "https://github.com/scrapy/scrapy/archive/master.zip",
+        "https://codeload.github.com/scrapy/scrapy/zip/refs/heads/master"
+      ],
+      "count": 1,
+      "latency": 0.16669106483459473,
+      "final_status": 200
+    },
+    "https://github.com/scrapy/scrapy/archive/2.11.2.zip": {
+      "chain": [
+        "https://github.com/scrapy/scrapy/archive/2.11.2.zip",
+        "https://codeload.github.com/scrapy/scrapy/zip/refs/tags/2.11.2"
+      ],
+      "count": 1,
+      "latency": 0.3958151340484619,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/master/contributing.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/master/contributing.html",
+        "https://docs.scrapy.org/en/master/contributing.html"
+      ],
+      "count": 1,
+      "latency": 0.12003207206726074,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/master/": {
+      "chain": [
+        "http://docs.scrapy.org/en/master/",
+        "https://docs.scrapy.org/en/master/"
+      ],
+      "count": 1,
+      "latency": 0.20208311080932617,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/latest/intro/tutorial.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/intro/tutorial.html",
+        "https://docs.scrapy.org/en/latest/intro/tutorial.html"
+      ],
+      "count": 1,
+      "latency": 0.1686711311340332,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/latest/news.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/news.html",
+        "https://docs.scrapy.org/en/latest/news.html"
+      ],
+      "count": 1,
+      "latency": 0.18323993682861328,
+      "final_status": 200
+    },
+    "http://arbisoft.com/services/": {
+      "chain": [
+        "http://arbisoft.com/services/",
+        "https://arbisoft.com/services/",
+        "https://arbisoft.com/services"
+      ],
+      "count": 2,
+      "latency": 0.25133800506591797,
+      "final_status": 404
+    },
+    "http://datahut.co": {
+      "chain": [
+        "http://datahut.co/",
+        "https://datahut.co/",
+        "https://www.datahut.co/"
+      ],
+      "count": 2,
+      "latency": 0.4556412696838379,
+      "final_status": 200
+    },
+    "http://sayonetech.com/": {
+      "chain": [
+        "http://sayonetech.com/",
+        "https://www.sayonetech.com/"
+      ],
+      "count": 1,
+      "latency": 1.506695032119751,
+      "final_status": 200
+    },
+    "http://sayonetech.com/services/data-scraping/": {
+      "chain": [
+        "http://sayonetech.com/services/data-scraping/",
+        "https://www.sayonetech.com/services/data-scraping/",
+        "https://www.sayonetech.com/"
+      ],
+      "count": 2,
+      "latency": 0.7839410305023193,
+      "final_status": 200
+    },
+    "https://www.lambertlabs.com/": {
+      "chain": [
+        "https://www.lambertlabs.com/",
+        "http://lambertlabs.com/",
+        "https://lambertlabs.com/"
+      ],
+      "count": 2,
+      "latency": 0.6850807666778564,
+      "final_status": 200
+    },
+    "http://parsely.com/": {
+      "chain": [
+        "http://parsely.com/",
+        "https://parsely.com/",
+        "https://www.parse.ly/"
+      ],
+      "count": 2,
+      "latency": 0.840831995010376,
+      "final_status": 200
+    },
+    "http://www.my.jobs/": {
+      "chain": [
+        "http://www.my.jobs/",
+        "https://usa.jobs/?utm_source=my.jobs",
+        "https://www.usa.jobs/?utm_source=my.jobs"
+      ],
+      "count": 2,
+      "latency": 1.3424499034881592,
+      "final_status": 200
+    },
+    "http://www.flax.co.uk/": {
+      "chain": [
+        "http://www.flax.co.uk/",
+        "https://www.flax.co.uk/"
+      ],
+      "count": 1,
+      "latency": 0.9187731742858887,
+      "final_status": 200
+    },
+    "http://www.flax.co.uk/2013/02/22/cambridge-search-meetup-a-night-of-\ncrawling-and-scraping/": {
+      "chain": [
+        "http://www.flax.co.uk/2013/02/22/cambridge-search-meetup-a-night-of-%0Acrawling-and-scraping/",
+        "https://www.flax.co.uk/2013/02/22/cambridge-search-meetup-a-night-of-%0Acrawling-and-scraping/"
+      ],
+      "count": 1,
+      "latency": 0.2773709297180176,
+      "final_status": 466
+    },
+    "http://medialab.sciences-po.fr/": {
+      "chain": [
+        "http://medialab.sciences-po.fr/",
+        "https://medialab.sciencespo.fr/"
+      ],
+      "count": 1,
+      "latency": 3.7797839641571045,
+      "final_status": 200
+    },
+    "https://groups.google.com/d/topic/scrapy-users/ApfTGGokSKo/discussion": {
+      "chain": [
+        "https://groups.google.com/d/topic/scrapy-users/ApfTGGokSKo/discussion",
+        "https://groups.google.com/g/scrapy-users/c/ApfTGGokSKo"
+      ],
+      "count": 1,
+      "latency": 0.7308268547058105,
+      "final_status": 200
+    },
+    "http://www.lyst.com/": {
+      "chain": [
+        "http://www.lyst.com/",
+        "https://www.lyst.com/"
+      ],
+      "count": 1,
+      "latency": 0.591019868850708,
+      "final_status": 200
+    },
+    "http://blog.scraperwiki.com/2013/03/14/tools-of-the-trade/": {
+      "chain": [
+        "http://blog.scraperwiki.com/2013/03/14/tools-of-the-trade/",
+        "https://blog.scraperwiki.com/2013/03/14/tools-of-the-trade/"
+      ],
+      "count": 1,
+      "latency": 0.32259082794189453,
+      "final_status": 404
+    },
+    "http://www.data.gov.uk/": {
+      "chain": [
+        "http://www.data.gov.uk/",
+        "https://www.data.gov.uk/"
+      ],
+      "count": 1,
+      "latency": 0.8892970085144043,
+      "final_status": 200
+    },
+    "http://twitter.com/bfirsh/status/8025368963": {
+      "chain": [
+        "http://twitter.com/bfirsh/status/8025368963",
+        "https://twitter.com/bfirsh/status/8025368963"
+      ],
+      "count": 1,
+      "latency": 0.2782399654388428,
+      "final_status": 403
+    },
+    "http://grablab.org/": {
+      "chain": [
+        "http://grablab.org/",
+        "http://ww7.grablab.org/?usid=16&utid=38230769794"
+      ],
+      "count": 1,
+      "latency": 0.8775207996368408,
+      "final_status": 200
+    },
+    "http://www.simplespot.it/": {
+      "chain": [
+        "http://www.simplespot.it/",
+        "https://simplespot.net/",
+        "https://www.simplespot.net/"
+      ],
+      "count": 2,
+      "latency": 3.116910696029663,
+      "final_status": 200
+    },
+    "http://www.monetate.com/": {
+      "chain": [
+        "http://www.monetate.com/",
+        "http://monetate.com/",
+        "https://monetate.com/"
+      ],
+      "count": 2,
+      "latency": 0.7336690425872803,
+      "final_status": 200
+    },
+    "http://www.lionseek.com/": {
+      "chain": [
+        "http://www.lionseek.com/",
+        "https://www.lionseek.com/"
+      ],
+      "count": 1,
+      "latency": 0.4902060031890869,
+      "final_status": 404
+    },
+    "http://www.stilivo.com/": {
+      "chain": [
+        "http://www.stilivo.com/",
+        "http://www.stilivo.com/tr/bayan-giyim-modelleri/"
+      ],
+      "count": 1,
+      "latency": 0.40437984466552734,
+      "final_status": 200
+    },
+    "http://www.mapado.com/": {
+      "chain": [
+        "http://www.mapado.com/",
+        "https://www.mapado.com/"
+      ],
+      "count": 1,
+      "latency": 0.735238790512085,
+      "final_status": 200
+    },
+    "http://www.zopper.com/": {
+      "chain": [
+        "http://www.zopper.com/",
+        "https://www.zopper.com:443/"
+      ],
+      "count": 1,
+      "latency": 4.753817796707153,
+      "final_status": 200
+    },
+    "http://wp-rocket.me/": {
+      "chain": [
+        "http://wp-rocket.me/",
+        "https://wp-rocket.me/"
+      ],
+      "count": 1,
+      "latency": 0.5664687156677246,
+      "final_status": 200
+    },
+    "http://competera.net/": {
+      "chain": [
+        "http://competera.net/",
+        "https://competera.net/",
+        "https://competera.ai/"
+      ],
+      "count": 2,
+      "latency": 0.9230508804321289,
+      "final_status": 200
+    },
+    "http://www.jobijoba.com/": {
+      "chain": [
+        "http://www.jobijoba.com/",
+        "https://www.jobijoba.com/",
+        "https://www.jobijoba.com/fr/"
+      ],
+      "count": 2,
+      "latency": 1.5717267990112305,
+      "final_status": 200
+    },
+    "http://dataquarry.co.uk/": {
+      "chain": [
+        "http://dataquarry.co.uk/",
+        "http://louisemcmahon.co.uk/",
+        "https://www.louisemcmahon.co.uk/"
+      ],
+      "count": 2,
+      "latency": 0.982468843460083,
+      "final_status": 200
+    },
+    "http://utero.pe/": {
+      "chain": [
+        "http://utero.pe/",
+        "https://utero.pe/"
+      ],
+      "count": 1,
+      "latency": 3.683767795562744,
+      "final_status": 200
+    },
+    "http://www.monkeylearn.com/": {
+      "chain": [
+        "http://www.monkeylearn.com/",
+        "https://www.medallia.com/platform/text-analytics/?utm_campaign=monkeylearnmigration"
+      ],
+      "count": 1,
+      "latency": 0.6160087585449219,
+      "final_status": 200
+    },
+    "http://neu.land/": {
+      "chain": [
+        "http://neu.land/",
+        "https://neu.land/"
+      ],
+      "count": 1,
+      "latency": 0.5942769050598145,
+      "final_status": 200
+    },
+    "http://www.allogarage.fr/": {
+      "chain": [
+        "http://www.allogarage.fr/",
+        "https://www.allogarage.fr/"
+      ],
+      "count": 1,
+      "latency": 0.918004035949707,
+      "final_status": 200
+    },
+    "https://politepol.com/": {
+      "chain": [
+        "https://politepol.com/",
+        "https://politepol.com/en/"
+      ],
+      "count": 1,
+      "latency": 0.7966089248657227,
+      "final_status": 200
+    },
+    "http://www.retailshake.com/": {
+      "chain": [
+        "http://www.retailshake.com/",
+        "https://retailshake.com/",
+        "https://www.retailshake.com/"
+      ],
+      "count": 2,
+      "latency": 1.8503937721252441,
+      "final_status": 200
+    },
+    "https://onesimplicity.com": {
+      "chain": [
+        "https://onesimplicity.com/",
+        "https://www.onesimplicity.com/"
+      ],
+      "count": 1,
+      "latency": 0.5368530750274658,
+      "final_status": 200
+    },
+    "https://apps.apple.com/sk/app/simplicity/id1547175115": {
+      "chain": [
+        "https://apps.apple.com/sk/app/simplicity/id1547175115",
+        "https://apps.apple.com/sk/app/simplicity-ai-city-guide/id1547175115"
+      ],
+      "count": 1,
+      "latency": 0.5153310298919678,
+      "final_status": 200
+    },
+    "https://world.public.law": {
+      "chain": [
+        "https://world.public.law/",
+        "https://www.public.law/world/"
+      ],
+      "count": 1,
+      "latency": 0.5429790019989014,
+      "final_status": 200
+    },
+    "https://improwised.com": {
+      "chain": [
+        "https://improwised.com/",
+        "https://www.improwised.com/"
+      ],
+      "count": 1,
+      "latency": 0.5867481231689453,
+      "final_status": 200
+    },
+    "https://www.pythongasm.com/introduction-to-scrapy/": {
+      "chain": [
+        "https://www.pythongasm.com/introduction-to-scrapy/",
+        "http://www.pythongasm.com/introduction-to-scrapy",
+        "https://www.pythongasm.com/introduction-to-scrapy"
+      ],
+      "count": 2,
+      "latency": 0.9259481430053711,
+      "final_status": 405
+    },
+    "https://www.zyte.com/blog/how-to-use-zyte-smart-proxy-manager-crawlera-with-scrapy/": {
+      "chain": [
+        "https://www.zyte.com/blog/how-to-use-zyte-smart-proxy-manager-crawlera-with-scrapy/",
+        "https://www.zyte.com/blog/how-to-use-zyte-smart-proxy-manager-with-scrapy/"
+      ],
+      "count": 1,
+      "latency": 0.11583399772644043,
+      "final_status": 200
+    },
+    "http://python.gotrained.com/scrapy-tutorial-web-scraping-craigslist/": {
+      "chain": [
+        "http://python.gotrained.com/scrapy-tutorial-web-scraping-craigslist/",
+        "https://python.gotrained.com/scrapy-tutorial-web-scraping-craigslist/"
+      ],
+      "count": 1,
+      "latency": 2.190920829772949,
+      "final_status": 200
+    },
+    "http://sangaline.com/post/wayback-machine-scraper/": {
+      "chain": [
+        "http://sangaline.com/post/wayback-machine-scraper/",
+        "https://sangaline.com/post/wayback-machine-scraper/"
+      ],
+      "count": 1,
+      "latency": 0.38022804260253906,
+      "final_status": 200
+    },
+    "http://sangaline.com/post/advanced-web-scraping-tutorial/": {
+      "chain": [
+        "http://sangaline.com/post/advanced-web-scraping-tutorial/",
+        "https://sangaline.com/post/advanced-web-scraping-tutorial/"
+      ],
+      "count": 1,
+      "latency": 0.19907903671264648,
+      "final_status": 200
+    },
+    "https://realpython.com/blog/python/web-scraping-with-scrapy-and-mongodb/": {
+      "chain": [
+        "https://realpython.com/blog/python/web-scraping-with-scrapy-and-mongodb/",
+        "https://realpython.com/web-scraping-with-scrapy-and-mongodb/"
+      ],
+      "count": 1,
+      "latency": 0.9477770328521729,
+      "final_status": 200
+    },
+    "https://realpython.com/blog/python/web-scraping-and-crawling-with-scrapy-and-mongodb/": {
+      "chain": [
+        "https://realpython.com/blog/python/web-scraping-and-crawling-with-scrapy-and-mongodb/",
+        "https://realpython.com/web-scraping-and-crawling-with-scrapy-and-mongodb/",
+        "https://realpython.com/web-scraping-with-scrapy-and-mongodb/"
+      ],
+      "count": 2,
+      "latency": 0.2297220230102539,
+      "final_status": 200
+    },
+    "http://www.seckintozlu.com/1148-how-to-run-scrapy-spiders-on-the-cloud-using-heroku-and-redis.html": {
+      "chain": [
+        "http://www.seckintozlu.com/1148-how-to-run-scrapy-spiders-on-the-cloud-using-heroku-and-redis.html",
+        "https://www.seckintozlu.com/1148-how-to-run-scrapy-spiders-on-the-cloud-using-heroku-and-redis.html"
+      ],
+      "count": 1,
+      "latency": 1.383223056793213,
+      "final_status": 200
+    },
+    "https://eliasdorneles.github.io/2014/08/30/web-scraping-with-scrapy---first-steps.html": {
+      "chain": [
+        "https://eliasdorneles.github.io/2014/08/30/web-scraping-with-scrapy---first-steps.html",
+        "https://eliasdorneles.com/2014/08/30/web-scraping-with-scrapy---first-steps.html"
+      ],
+      "count": 1,
+      "latency": 0.48888182640075684,
+      "final_status": 200
+    },
+    "http://pkmishra.github.io/blog/2013/03/18/how-to-run-scrapy-with-TOR-and-multiple-browser-agents-part-1-mac/": {
+      "chain": [
+        "http://pkmishra.github.io/blog/2013/03/18/how-to-run-scrapy-with-TOR-and-multiple-browser-agents-part-1-mac/",
+        "http://pkmishra.dev/blog/2013/03/18/how-to-run-scrapy-with-TOR-and-multiple-browser-agents-part-1-mac/"
+      ],
+      "count": 1,
+      "latency": 0.4832298755645752,
+      "final_status": 200
+    },
+    "https://pkmishra.github.io/blog/2013/04/16/scrapy-run-using-tor-and-multiple-agents-part-2-ubuntu/": {
+      "chain": [
+        "https://pkmishra.github.io/blog/2013/04/16/scrapy-run-using-tor-and-multiple-agents-part-2-ubuntu/",
+        "http://pkmishra.dev/blog/2013/04/16/scrapy-run-using-tor-and-multiple-agents-part-2-ubuntu/"
+      ],
+      "count": 1,
+      "latency": 0.1962110996246338,
+      "final_status": 200
+    },
+    "http://shop.oreilly.com/product/0636920037057.do": {
+      "chain": [
+        "http://shop.oreilly.com/product/0636920037057.do",
+        "https://shop.oreilly.com/product/0636920037057.do",
+        "https://www.oreilly.com/library/view/~/9781491920565/",
+        "https://www.oreilly.com/library/view/data-visualization-with/9781491920565/"
+      ],
+      "count": 3,
+      "latency": 1.5923569202423096,
+      "final_status": 200
+    },
+    "https://www.udemy.com/scrapy-tutorial-web-scraping-with-python/": {
+      "chain": [
+        "https://www.udemy.com/scrapy-tutorial-web-scraping-with-python/",
+        "https://www.udemy.com/course/scrapy-tutorial-web-scraping-with-python/"
+      ],
+      "count": 1,
+      "latency": 1.0818297863006592,
+      "final_status": 200
+    },
+    "https://www.udemy.com/python-scrapy/": {
+      "chain": [
+        "https://www.udemy.com/python-scrapy/",
+        "https://www.udemy.com/course/python-scrapy/"
+      ],
+      "count": 1,
+      "latency": 2.8944091796875,
+      "final_status": 200
+    },
+    "https://github.com/scrapinghub/learn-scrapy": {
+      "chain": [
+        "https://github.com/scrapinghub/learn-scrapy",
+        "https://github.com/scrapinghub/learn.scrapinghub.com"
+      ],
+      "count": 1,
+      "latency": 0.507849931716919,
+      "final_status": 200
+    },
+    "http://pyvideo.org/europython-2015/dive-into-scrapy.html": {
+      "chain": [
+        "http://pyvideo.org/europython-2015/dive-into-scrapy.html",
+        "https://pyvideo.org/europython-2015/dive-into-scrapy.html"
+      ],
+      "count": 1,
+      "latency": 0.5573198795318604,
+      "final_status": 200
+    },
+    "http://pyvideo.org/pycon-us-2013/scrapy-it-gets-the-web.html": {
+      "chain": [
+        "http://pyvideo.org/pycon-us-2013/scrapy-it-gets-the-web.html",
+        "https://pyvideo.org/pycon-us-2013/scrapy-it-gets-the-web.html"
+      ],
+      "count": 1,
+      "latency": 0.1270589828491211,
+      "final_status": 200
+    },
+    "http://www.slideshare.net/federicof/crawling-the-web-for-fun-and-profit": {
+      "chain": [
+        "http://www.slideshare.net/federicof/crawling-the-web-for-fun-and-profit",
+        "https://www.slideshare.net/federicof/crawling-the-web-for-fun-and-profit",
+        "https://www.slideshare.net/slideshow/crawling-the-web-for-fun-and-profit/4006514"
+      ],
+      "count": 2,
+      "latency": 1.0933561325073242,
+      "final_status": 200
+    },
+    "http://www.slideshare.net/previa/scrapyfordummies-15277988": {
+      "chain": [
+        "http://www.slideshare.net/previa/scrapyfordummies-15277988",
+        "https://www.slideshare.net/previa/scrapyfordummies-15277988",
+        "https://www.slideshare.net/slideshow/scrapyfordummies-15277988/15277988"
+      ],
+      "count": 2,
+      "latency": 0.9736001491546631,
+      "final_status": 200
+    },
+    "http://www.slideshare.net/sammyfung/web-scraping-1-23-with-python-scrapy-summer-barcamphk-2012-version": {
+      "chain": [
+        "http://www.slideshare.net/sammyfung/web-scraping-1-23-with-python-scrapy-summer-barcamphk-2012-version",
+        "https://www.slideshare.net/sammyfung/web-scraping-1-23-with-python-scrapy-summer-barcamphk-2012-version",
+        "https://www.slideshare.net/slideshow/web-scraping-1-23-with-python-scrapy-summer-barcamphk-2012-version/13636343"
+      ],
+      "count": 2,
+      "latency": 0.9593651294708252,
+      "final_status": 200
+    },
+    "http://www.slideshare.net/jimmy_lai/when-big-data-meet-python": {
+      "chain": [
+        "http://www.slideshare.net/jimmy_lai/when-big-data-meet-python",
+        "https://www.slideshare.net/jimmy_lai/when-big-data-meet-python"
+      ],
+      "count": 1,
+      "latency": 1.0522351264953613,
+      "final_status": 200
+    },
+    "http://scribd.com/doc/153755386/How-to-Scrap-Any-Website-s-content-using-Scrapy": {
+      "chain": [
+        "http://scribd.com/doc/153755386/How-to-Scrap-Any-Website-s-content-using-Scrapy",
+        "https://scribd.com/doc/153755386/How-to-Scrap-Any-Website-s-content-using-Scrapy",
+        "https://www.scribd.com/doc/153755386/How-to-Scrap-Any-Website-s-content-using-Scrapy"
+      ],
+      "count": 2,
+      "latency": 1.026196002960205,
+      "final_status": 200
+    },
+    "http://www.slideshare.net/dbertinat1/scrapy": {
+      "chain": [
+        "http://www.slideshare.net/dbertinat1/scrapy",
+        "https://www.slideshare.net/dbertinat1/scrapy",
+        "https://es.slideshare.net/slideshow/scrapy/15273733"
+      ],
+      "count": 2,
+      "latency": 0.8991310596466064,
+      "final_status": 200
+    },
+    "http://www.slideshare.net/zenyuhao/ss-7188268": {
+      "chain": [
+        "http://www.slideshare.net/zenyuhao/ss-7188268",
+        "https://www.slideshare.net/zenyuhao/ss-7188268",
+        "https://www.slideshare.net/slideshow/ss-7188268/7188268"
+      ],
+      "count": 2,
+      "latency": 0.8103039264678955,
+      "final_status": 200
+    },
+    "http://slides.com/tiagogoncalves/scrapy-portuguese": {
+      "chain": [
+        "http://slides.com/tiagogoncalves/scrapy-portuguese",
+        "https://slides.com:443/tiagogoncalves/scrapy-portuguese"
+      ],
+      "count": 1,
+      "latency": 0.6724081039428711,
+      "final_status": 200
+    },
+    "https://discord.gg/mv3yErfpvq": {
+      "chain": [
+        "https://discord.gg/mv3yErfpvq",
+        "https://discord.com/invite/mv3yErfpvq"
+      ],
+      "count": 1,
+      "latency": 0.2539949417114258,
+      "final_status": 200
+    },
+    "http://reddit.com/r/scrapy": {
+      "chain": [
+        "http://reddit.com/r/scrapy",
+        "https://reddit.com/r/scrapy",
+        "https://www.reddit.com/r/scrapy",
+        "https://www.reddit.com/r/scrapy/"
+      ],
+      "count": 3,
+      "latency": 0.39510083198547363,
+      "final_status": 200
+    },
+    "http://stackoverflow.com/questions/tagged/scrapy": {
+      "chain": [
+        "http://stackoverflow.com/questions/tagged/scrapy",
+        "https://stackoverflow.com/questions/tagged/scrapy"
+      ],
+      "count": 1,
+      "latency": 0.21254229545593262,
+      "final_status": 200
+    },
+    "http://stackoverflow.com/questions/ask": {
+      "chain": [
+        "http://stackoverflow.com/questions/ask",
+        "https://stackoverflow.com/questions/ask",
+        "https://stackoverflow.com/users/login?ssrc=anon_ask&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2fask"
+      ],
+      "count": 2,
+      "latency": 0.24375700950622559,
+      "final_status": 404
+    },
+    "http://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients": {
+      "chain": [
+        "http://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients",
+        "https://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients"
+      ],
+      "count": 1,
+      "latency": 0.2321460247039795,
+      "final_status": 200
+    },
+    "http://twitter.com/ScrapyProject": {
+      "chain": [
+        "http://twitter.com/ScrapyProject",
+        "https://twitter.com/ScrapyProject"
+      ],
+      "count": 1,
+      "latency": 0.1486349105834961,
+      "final_status": 403
+    },
+    "http://docs.scrapy.org/en/latest/genindex.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/genindex.html",
+        "https://docs.scrapy.org/en/latest/genindex.html"
+      ],
+      "count": 1,
+      "latency": 0.2880058288574219,
+      "final_status": 200
+    },
+    "http://docs.scrapy.org/en/latest/py-modindex.html": {
+      "chain": [
+        "http://docs.scrapy.org/en/latest/py-modindex.html",
+        "https://docs.scrapy.org/en/latest/py-modindex.html"
+      ],
+      "count": 1,
+      "latency": 0.2561159133911133,
+      "final_status": 200
+    },
+    "https://www.sphinx-doc.org/": {
+      "chain": [
+        "https://www.sphinx-doc.org/",
+        "https://www.sphinx-doc.org/en/master/"
+      ],
+      "count": 1,
+      "latency": 0.11648416519165039,
+      "final_status": 200
+    },
+    "https://readthedocs.org": {
+      "chain": [
+        "https://readthedocs.org/",
+        "https://app.readthedocs.org/welcome/",
+        "https://about.readthedocs.com/?ref=app.readthedocs.org"
+      ],
+      "count": 2,
+      "latency": 0.1566450595855713,
+      "final_status": 200
+    }
+  },
+  "sitemap_issues": [
+    "Sitemap not found at https://scrapy.org/sitemap.xml",
+    "Sitemap not found at https://scrapy.org/sitemap.xml",
+    "Sitemap not found at https://scrapy.org/sitemap.xml",
+    "Sitemap not found at https://scrapy.org/sitemap.xml",
+    "Sitemap not found at https://scrapy.org/sitemap.xml",
+    "Sitemap not found at https://scrapy.org/sitemap.xml"
+  ]
+}

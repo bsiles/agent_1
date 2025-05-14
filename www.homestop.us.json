@@ -1,0 +1,283 @@
+{
+  "crawl_timestamp": "2025-05-14T00:08:42.159384",
+  "url_count": 1,
+  "domain": "https://www.homestop.us",
+  "analyzed_url": "https://www.homestop.us",
+  "crawl_issues_summary": {
+    "images_missing_alt_text": 14
+  },
+  "canonical_issues_summary": {},
+  "page_info": {
+    "url": "https://www.homestop.us",
+    "indexability": {
+      "robots_txt_allowed": true,
+      "meta_robots": "index,follow",
+      "canonical": "https://www.homestop.us",
+      "canonical_self_referencing": true,
+      "noindex_reason": null,
+      "canonical_issues": []
+    },
+    "metadata": {
+      "title_tag": "Home Renovation in Texas | HomeStop Inc.",
+      "meta_description": "Discover top-notch residential services with HomeStop. From landscaping, Concrete Coating, Patio installation, home insulation, Sidings and more. We provide comprehensive commercial property and residential home improvement and maintainance solutions.",
+      "h_tags": {
+        "h1": [
+          "YOURONE-STOPFOR HOME IMPROVEMENT"
+        ],
+        "h2": [
+          "TESTIMONIALSWhat ourCustomer Say",
+          "OUR NEW PRODUCTS",
+          "SERVICES WE OFFER",
+          "Bring Your Vision to Life:",
+          "OUR ACCREDITATIONS",
+          "GET FREE SERVICE QUOTE",
+          "20,000+",
+          "Satisfied Homeowners",
+          "40+ Years",
+          "Experience",
+          "89+ Cities",
+          "Across Texas",
+          "Google reviews",
+          "QUICK LINKS",
+          "CONTACT US",
+          "SERVICES"
+        ],
+        "h3": [
+          "LOUVERED PATIOS & RETRACTABLE SCREENS",
+          "SUNROOMS",
+          "IRON/STEEL DOORS",
+          "SUNROOMS",
+          "WINDOWS & EXTERIORS",
+          "PATIOS & PERGOLAS",
+          "SIDING",
+          "FLOORINGS & CONCRETE COATINGS",
+          "POOLS & SPAS",
+          "INSULATION",
+          "Price Match Guarantee",
+          "Lifetime Workmanship Guarantee",
+          "Product Warranty",
+          "One Stop for Multiple Estimates",
+          "Customer First & Responsive",
+          "Custom Designs",
+          "Share your vision, and we'll make it a reality."
+        ],
+        "h5": [
+          "WHAT CLIENTS SAY",
+          "WHAT CLIENTS SAY",
+          "WHAT CLIENTS SAY"
+        ]
+      },
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/e67958_7539438598aa4fa29707117712c93a9f~mv2.webp/v1/fill/w_3024,h_1361,al_c,q_90,enc_avif,quality_auto/Group%201261153584_upscayl_2x_realesrgan-x4plus_11zon.webp",
+          "alt_text": "Services we offer in a residential house"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_f63fde7417a148f898d2c79821c7f1ed~mv2.jpg/v1/fit/w_1920,h_927,q_90,enc_avif,quality_auto/e67958_f63fde7417a148f898d2c79821c7f1ed~mv2.jpg",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_8228e842266141f3955c281ab6ded534~mv2.jpg/v1/fit/w_1920,h_927,q_90,enc_avif,quality_auto/e67958_8228e842266141f3955c281ab6ded534~mv2.jpg",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_6d001d50a74f4c4db2fc189c34ad1566~mv2.png/v1/fill/w_469,h_235,al_c,lg_1,q_85,enc_avif,quality_auto/pngwing%201.png",
+          "alt_text": "Google Reviews"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_61f37f2bc6ca45ce90a66da23ed1a957~mv2.webp/v1/fill/w_514,h_232,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/325199.webp",
+          "alt_text": "Facebook Reviews"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_6910ea7dc2834616841ce94acf365668~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_Louvered_patios_with_retractable_screens_a30fcd03-7df5-4b9f-bd88-de180c99f.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_3902217420df4f02b8ed9e5836ab0ede~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_a_women_peeking_from_a_window_to_watch_at_a_dog_7d090ff4-adcd-43d0-8011-15.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_184567ba089747e696d52b574f765a24~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_iron_or_steel_doors_of_a_modern_house_e20665a7-62ec-494c-b128-af317e1447e2.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_f0f5bfd87a344266ab47e9c078a6953f~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_All-Season_Sunrooms_with_motorized_smooth_glide_b6712e6b-f16f-4e03-bc4a-dd.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_dfca6e07940b46528c4a2fafc1ac6818~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_sliding_or_accordion_doors_of_a_house_7d5a7173-e02d-434a-bd41-0b4ac0a7eca8.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_a28eeb7674214874af6818f0a39e379c~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_windows_and_exterior_of_a_modern_house_7571df2d-8b60-480e-895a-5686abd4879.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_11140ee855534ad49099543630a938e0~mv2.png/v1/fill/w_109,h_83,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Rectangle%20706.png",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_fdb49cae99194118a6f5a0d8b86ef27c~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_K_style_gutter_32dcaa5f-8c7e-466e-969b-f364321d194f_11zon.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_fe3ca91985c84e72be8e0435ce7be8a3~mv2.png/v1/fill/w_109,h_83,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Rectangle%20708.png",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_a0ba3c6a6f854e71b14e8fbc12852cba~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_Pools_and_Spas_of_outside_a_house_e05ad270-0a68-47f1-9926-a82142f6c81e_11z.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_815731f9f8e246fc9c3ce6a7767add49~mv2.webp/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_insulation_of_a_house_e8345726-896a-4b27-9725-c795cea69838_11zon.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/11062b_aca71b0c670a40c8bf05565ebc232510~mv2.png/v1/fill/w_160,h_82,al_c,q_85,usm_0.66_1.00_0.01,blur_3,enc_avif,quality_auto/11062b_aca71b0c670a40c8bf05565ebc232510~mv2.png",
+          "alt_text": "Abstract Clouds"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_d36cb753578e40c5af526a304f28b9c2~mv2.png/v1/crop/x_0,y_305,w_2048,h_1631/fill/w_49,h_39,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/amitkatke_82927_resendiatial_bunglow_3d_model_isolated_backgrou_b37a707d-5a58-4d22-9ad0-71.png",
+          "alt_text": "3D model of Residential House "
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_2dab4cf1359b47b596c93eb0f2f6612a~mv2.webp/v1/fill/w_147,h_69,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/2202_w039_n003_133b_p1_133_11zon.webp",
+          "alt_text": "Custom Design"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_547cfcb243494be3a1a39929913d707d~mv2.webp/v1/fill/w_147,h_27,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/business%20accreditation.webp",
+          "alt_text": "Business Accreditation "
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_29abb1e0db6c4b3fa64f1c6844994c07~mv2.webp/v1/fill/w_160,h_90,al_c,q_80,usm_0.66_1.00_0.01,blur_3,enc_avif,quality_auto/e67958_29abb1e0db6c4b3fa64f1c6844994c07~mv2.webp",
+          "alt_text": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_90384aa7e62641db92eeb88bc1b6bf6b~mv2.webp/v1/fill/w_2912,h_1506,al_c,q_90,enc_avif,quality_auto/e67958_90384aa7e62641db92eeb88bc1b6bf6b~mv2.webp",
+          "alt_text": "amitkatke_82927_residential_work_of_a_modern_house_68cce4df-7be7-48fb-9cbe-1be290abd618_11"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_1dde3d0b941f497facec19b7d197b0a2~mv2.png/v1/fill/w_49,h_25,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Group%201261153612.png",
+          "alt_text": "HomeStop Logo"
+        },
+        {
+          "src": "",
+          "alt_text": "Facebook"
+        },
+        {
+          "src": "",
+          "alt_text": "Instagram"
+        },
+        {
+          "src": "",
+          "alt_text": "LinkedIn"
+        },
+        {
+          "src": "",
+          "alt_text": "X"
+        },
+        {
+          "src": "",
+          "alt_text": "TikTok"
+        },
+        {
+          "src": "",
+          "alt_text": "Pinterest"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_99531f63aded4756a759c2ff7feaf1e2~mv2.png/v1/fill/w_49,h_27,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Eagle%20Builders%20copy.png",
+          "alt_text": "Eagle Builders copy.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_a7262793d85749d690cf55a1641091ff~mv2.png/v1/fill/w_49,h_12,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/image%201_upscayl_2x_realesrgan-x4plus_11zon.png",
+          "alt_text": "image 1_upscayl_2x_realesrgan-x4plus_11zon.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_1994d241696240e6814b99b39cb33b5c~mv2.png/v1/fill/w_49,h_28,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/American-Insulation-Logo_upscayl_2x_realesrgan-x4plus.png",
+          "alt_text": "American Insulation Logo"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_76732fd3646748888d16979e63233d2d~mv2.png/v1/fill/w_49,h_15,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Artboard%201.png",
+          "alt_text": "Artboard 1.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/e67958_3eeccddeb3564d5cb8a61ec3c8e9d4b3~mv2.png/v1/fill/w_49,h_34,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/axis%20commercial%20pool_edited.png",
+          "alt_text": "axis commercial pool_edited.png"
+        }
+      ]
+    }
+  },
+  "technical_analysis": {
+    "broken_links": {
+      "502": [
+        {
+          "url": "https://www.homestop.us/services/siding",
+          "is_internal": true,
+          "redirect_chain": null
+        },
+        {
+          "url": "https://www.homestop.us/services/patios-and-pergolas",
+          "is_internal": true,
+          "redirect_chain": null
+        },
+        {
+          "url": "https://www.homestop.us/gallery",
+          "is_internal": true,
+          "redirect_chain": null
+        }
+      ],
+      "403": [
+        {
+          "url": "https://x.com/HomeStopInc",
+          "is_internal": false,
+          "redirect_chain": null
+        },
+        {
+          "url": "https://www.tiktok.com/@homestopinc?is_from_webapp=1&sender_device=pc",
+          "is_internal": false,
+          "redirect_chain": null
+        }
+      ]
+    },
+    "redirect_chains": {
+      "http://www.corporate.homestop.us": {
+        "chain": [
+          "http://www.corporate.homestop.us/",
+          "https://www.corporate.homestop.us/",
+          "https://corporate.homestop.us/"
+        ],
+        "count": 2,
+        "latency": 0.4544718265533447,
+        "final_status": 200
+      },
+      "https://www.homestop.us/services/windows-and-exteriors": {
+        "chain": [
+          "https://www.homestop.us/services/windows-and-exteriors",
+          "https://www.homestop.us/services/blank-7"
+        ],
+        "count": 1,
+        "latency": 2.0646772384643555,
+        "final_status": 200
+      },
+      "https://www.linkedin.com/company/homestop-inc/about/": {
+        "chain": [
+          "https://www.linkedin.com/company/homestop-inc/about/",
+          "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fhomestop-inc%2Fabout%2F"
+        ],
+        "count": 1,
+        "latency": 0.4504120349884033,
+        "final_status": 200
+      },
+      "https://americaneaglebuilders.com/": {
+        "chain": [
+          "https://americaneaglebuilders.com/",
+          "https://www.americaneaglebuilders.com/"
+        ],
+        "count": 1,
+        "latency": 3.306727886199951,
+        "final_status": 200
+      }
+    },
+    "sitemap_issues": []
+  }
+}

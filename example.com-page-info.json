@@ -1,0 +1,23 @@
+{
+  "url": "https://example.com",
+  "indexability": {
+    "robots_txt_allowed": true,
+    "meta_robots": "index,follow",
+    "canonical": "https://example.com",
+    "canonical_self_referencing": true,
+    "noindex_reason": null,
+    "canonical_issues": [
+      "missing_canonical"
+    ]
+  },
+  "metadata": {
+    "title_tag": "Example Domain",
+    "meta_description": "",
+    "h_tags": {
+      "h1": [
+        "Example Domain"
+      ]
+    },
+    "images": []
+  }
+}

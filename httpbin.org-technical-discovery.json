@@ -1,0 +1,101 @@
+{
+  "broken_links": {
+    "405": [
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      },
+      {
+        "url": "https://kennethreitz.org",
+        "is_internal": false,
+        "redirect_chain": null
+      }
+    ]
+  },
+  "redirect_chains": {
+    "https://github.com/requests/httpbin": {
+      "chain": [
+        "https://github.com/requests/httpbin",
+        "https://github.com/postmanlabs/httpbin"
+      ],
+      "count": 1,
+      "latency": 0.08884906768798828,
+      "final_status": 200
+    },
+    "https://github.com/rochacbruno/flasgger": {
+      "chain": [
+        "https://github.com/rochacbruno/flasgger",
+        "https://github.com/flasgger/flasgger"
+      ],
+      "count": 1,
+      "latency": 0.07811093330383301,
+      "final_status": 200
+    }
+  },
+  "sitemap_issues": [
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml",
+    "Sitemap not found at https://httpbin.org/sitemap.xml"
+  ]
+}
