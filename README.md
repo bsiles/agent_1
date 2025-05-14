@@ -1,60 +1,71 @@
-# Site Properties Analyzer
+# Site Analyzer
 
-This script analyzes websites to extract key information including company name, description, tagline, and industry niche. It uses headless browser automation to crawl the site and extract relevant information.
+A powerful web crawler and analyzer that provides comprehensive technical analysis of websites.
 
 ## Features
 
-- Extracts company name from page title or domain
-- Generates a company description from meta tags or main content
-- Creates an engaging tagline based on the company's content
-- Determines the industry niche based on content analysis
-- Saves results to a timestamped text file
-- Crawls the site to a depth of 1 to gather comprehensive information
+- Depth-limited crawling (default depth 1)
+- Technical SEO analysis
+- Content structure analysis
+- Link validation
+- Sitemap validation
+- Performance metrics
+- Accessibility checks
 
 ## Requirements
 
 - Python 3.7+
-- Chrome browser installed
-- Required Python packages (install using `pip install -r requirements.txt`):
-  - requests
-  - beautifulsoup4
-  - selenium
-  - webdriver-manager
-  - python-dotenv
+- Chrome/Chromium browser
+- ChromeDriver
 
 ## Installation
 
-1. Clone this repository
-2. Install the required packages:
+1. Install Chrome/Chromium browser
+2. Install ChromeDriver:
+   ```bash
+   # For Mac with Homebrew
+   brew install chromedriver
+   ```
+3. Install Python dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
 ## Usage
 
-Run the script:
 ```bash
-python site_analyzer.py
+python site_analyzer.py https://example.com
 ```
-
-When prompted, enter the URL of the website you want to analyze. The script will:
-1. Crawl the website
-2. Extract relevant information
-3. Save the results to a text file
-4. Display the results in the console
 
 ## Output
 
-The script generates a text file with the following information:
-- URL
-- Company Name
-- Description
-- Tagline
-- Industry Niche
-- Analysis Timestamp
+The script generates three JSON files:
+- `{domain}-technical-discovery.json`: Technical analysis results
+- `{domain}-issues.json`: Crawl and canonical issues summaries
+- `{domain}-page-info.json`: Page metadata and structure info
 
-## Notes
+## Analysis Details
 
-- The script uses a headless Chrome browser, so you don't need to see the browser window
-- It respects robots.txt and implements basic rate limiting
-- The analysis is based on the main page and immediate linked pages (depth=1) 
+### Technical Analysis
+- URL status checking
+- Redirect chain tracking
+- Latency measurement
+- Internal vs external link classification
+- Sitemap validation
+
+### SEO Analysis
+- Title tag presence
+- Meta description presence
+- H1 tag presence
+- Image alt text checking
+- Canonical URL validation
+
+### Content Structure
+- Heading hierarchy analysis
+- Image inventory
+- Link structure
+- Content organization
+
+## License
+
+MIT License 
