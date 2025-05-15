@@ -11,6 +11,7 @@ A powerful web crawler and analyzer that provides comprehensive technical analys
 - Sitemap validation
 - Performance metrics
 - Accessibility checks
+- Parallel processing for improved performance
 
 ## Requirements
 
@@ -65,6 +66,21 @@ The script generates three JSON files:
 - Image inventory
 - Link structure
 - Content organization
+
+### Performance Optimizations
+- Parallel URL status checking
+- Concurrent page analysis
+- Thread-safe data structures
+- Configurable worker pools
+- Resource-aware processing
+
+## Performance
+
+The analyzer uses parallel processing to improve performance:
+- Multiple URLs are checked simultaneously
+- Page analysis is performed concurrently
+- Thread-safe operations ensure data consistency
+- Worker pool size is configurable based on system resources
 
 ## License
 

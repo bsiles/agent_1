@@ -34,6 +34,7 @@ class TechnicalAnalyzer:
         self.broken_links = defaultdict(list)
         self.redirect_chains = {}
         self.sitemap_issues = []
+        self.redirect_loops = 0  # Add counter for redirect loops
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
     def check_url(self, url, is_internal=True):
@@ -46,11 +47,18 @@ class TechnicalAnalyzer:
             # Record redirect chain
             if len(response.history) > 0:
                 chain = [r.url for r in response.history] + [response.url]
+                
+                # Check for redirect loops
+                has_loop = len(set(chain)) < len(chain)
+                if has_loop:
+                    self.redirect_loops += 1
+                
                 self.redirect_chains[url] = {
                     'chain': chain,
                     'count': len(response.history),
                     'latency': latency,
-                    'final_status': response.status_code
+                    'final_status': response.status_code,
+                    'has_loop': has_loop
                 }
 
             # Record broken links
@@ -138,15 +146,69 @@ class TechnicalAnalyzer:
         return {
             'broken_links': dict(self.broken_links),
             'redirect_chains': self.redirect_chains,
-            'sitemap_issues': self.sitemap_issues
+            'sitemap_issues': self.sitemap_issues,
+            'redirect_loops': self.redirect_loops  # Add redirect loops to results
         }
 
 class SiteCrawler:
     def __init__(self):
+        self.driver = None
         self.setup_driver()
-        self.robots_txt_content = None
+        
+        # Initialize tracking dictionaries
+        self.title_tracking = {}
+        self.meta_desc_tracking = {}
+        self.content_tracking = {}
         self.crawl_issues = defaultdict(int)
         self.canonical_issues = defaultdict(int)
+        self.internal_links = defaultdict(set)
+        self.inbound_links = defaultdict(set)
+        self.page_depths = {}
+        self.orphan_pages = set()
+        
+        # Initialize structured data tracking
+        self.structured_data = {
+            "schema_types": {
+                "Organization": [],
+                "LocalBusiness": [],
+                "MedicalBusiness": [],
+                "HealthAndBeautyBusiness": [],
+                "Service": [],
+                "Article": [],
+                "BlogPosting": [],
+                "WebPage": [],
+                "FAQPage": [],
+                "BreadcrumbList": [],
+                "other": []
+            },
+            "implementation_methods": {
+                "json_ld": {
+                    "count": 0,
+                    "valid": [],
+                    "invalid": [],
+                    "errors": []
+                },
+                "microdata": {
+                    "count": 0,
+                    "valid": [],
+                    "invalid": [],
+                    "errors": []
+                },
+                "rdfa": {
+                    "count": 0,
+                    "valid": [],
+                    "invalid": [],
+                    "errors": []
+                }
+            },
+            "page_coverage": {
+                "total_pages": 0,
+                "pages_with_schema": 0,
+                "pages_without_schema": []
+            }
+        }
+        
+        self.robots_txt_content = None
         self.technical_analyzer = TechnicalAnalyzer()
 
     def setup_driver(self):
@@ -225,7 +287,13 @@ class SiteCrawler:
         try:
             print(f"Fetching content for {url}...")
             self.driver.set_page_load_timeout(30)  # Increased timeout to 30 seconds
-            self.driver.get(url)
+            
+            # Add explicit timeout for page load
+            try:
+                self.driver.get(url)
+            except Exception as e:
+                print(f"Timeout or error loading page {url}: {str(e)}")
+                return None
             
             # Wait for content to load with explicit timeout
             try:
@@ -237,10 +305,14 @@ class SiteCrawler:
                 print(f"Timeout waiting for body element on {url}: {str(e)}")
                 return None
                 
-            # Give extra time for dynamic content
-            time.sleep(2)
-            print(f"Successfully loaded {url}")
-            return self.driver.page_source
+            # Give extra time for dynamic content but with a shorter timeout
+            try:
+                time.sleep(2)
+                print(f"Successfully loaded {url}")
+                return self.driver.page_source
+            except Exception as e:
+                print(f"Error getting page source for {url}: {str(e)}")
+                return None
             
         except Exception as e:
             print(f"Error fetching {url}: {str(e)}")
@@ -252,19 +324,34 @@ class SiteCrawler:
             "title_tag": "",
             "meta_description": "",
             "h_tags": defaultdict(list),
-            "images": []
+            "images": [],
+            "structured_data": self.analyze_structured_data(soup, url)
         }
 
         # Get title
         if soup.title:
-            metadata["title_tag"] = soup.title.string.strip()
+            title = soup.title.string.strip()
+            metadata["title_tag"] = title
+            # Track duplicate titles
+            if title in self.title_tracking:
+                self.crawl_issues["duplicate_titles"] += 1
+                self.title_tracking[title].append(url)
+            else:
+                self.title_tracking[title] = [url]
         else:
             self.crawl_issues["urls_missing_title_tag"] += 1
 
         # Get meta description
         meta_desc = soup.find('meta', attrs={'name': 'description'})
         if meta_desc and meta_desc.get('content'):
-            metadata["meta_description"] = meta_desc.get('content').strip()
+            desc = meta_desc.get('content').strip()
+            metadata["meta_description"] = desc
+            # Track duplicate meta descriptions
+            if desc in self.meta_desc_tracking:
+                self.crawl_issues["duplicate_meta_descriptions"] += 1
+                self.meta_desc_tracking[desc].append(url)
+            else:
+                self.meta_desc_tracking[desc] = [url]
         else:
             self.crawl_issues["urls_missing_meta_description"] += 1
 
@@ -285,6 +372,18 @@ class SiteCrawler:
             if not img_data["alt_text"]:
                 self.crawl_issues["images_missing_alt_text"] += 1
             metadata["images"].append(img_data)
+
+        # Track duplicate content
+        main_content = soup.find('main') or soup.find('article') or soup.find('div', class_='content') or soup.find('div', id='content')
+        if main_content:
+            content_text = main_content.get_text(strip=True)
+            # Use a simple hash of the content for comparison
+            content_hash = hash(content_text)
+            if content_hash in self.content_tracking:
+                self.crawl_issues["duplicate_content"] += 1
+                self.content_tracking[content_hash].append(url)
+            else:
+                self.content_tracking[content_hash] = [url]
 
         return metadata
 
@@ -337,12 +436,99 @@ class SiteCrawler:
 
         return indexability
 
+    def analyze_internal_links(self, url: str, depth: int = 0, visited: set = None):
+        """Analyze internal linking structure and update metrics."""
+        if visited is None:
+            visited = set()
+            self.page_depths[url] = 0  # Homepage is at depth 0
+        
+        if url in visited:
+            return
+        
+        visited.add(url)
+        parsed_url = urlparse(url)
+        domain = parsed_url.netloc
+        
+        try:
+            content = self.get_page_content(url)
+            if not content:
+                return
+                
+            soup = BeautifulSoup(content, 'html.parser')
+            links = soup.find_all('a', href=True)
+            
+            for link in links:
+                href = link['href']
+                try:
+                    absolute_url = urljoin(url, href)
+                    parsed_link = urlparse(absolute_url)
+                    
+                    # Skip invalid URLs and fragments
+                    if not parsed_link.scheme or parsed_link.scheme.startswith(('mailto', 'tel', 'javascript')):
+                        continue
+                    
+                    # Check if it's an internal link
+                    is_internal = parsed_link.netloc == domain or parsed_link.netloc == f"www.{domain}"
+                    
+                    if is_internal:
+                        # Add to internal links tracking
+                        self.internal_links[url].add(absolute_url)
+                        self.inbound_links[absolute_url].add(url)
+                        
+                        # Update page depth if this is a new page
+                        if absolute_url not in self.page_depths:
+                            self.page_depths[absolute_url] = depth + 1
+                        
+                        # Recursively analyze the linked page
+                        if absolute_url not in visited:
+                            self.analyze_internal_links(absolute_url, depth + 1, visited)
+                            
+                except Exception as e:
+                    print(f"Error processing link {href}: {str(e)}")
+                    
+        except Exception as e:
+            print(f"Error analyzing internal links for {url}: {str(e)}")
+
+    def identify_orphan_pages(self):
+        """Identify pages with no inbound links."""
+        all_pages = set(self.internal_links.keys())
+        for page in all_pages:
+            if not self.inbound_links[page]:
+                self.orphan_pages.add(page)
+
+    def get_page_linking_metrics(self, url: str) -> dict:
+        """Get linking metrics for a specific page."""
+        return {
+            "outbound_links": len(self.internal_links[url]),
+            "inbound_links": len(self.inbound_links[url]),
+            "depth": self.page_depths.get(url, -1)
+        }
+
+    def get_linking_metrics(self):
+        """Get comprehensive internal linking metrics."""
+        self.identify_orphan_pages()
+        
+        metrics = {
+            "orphan_pages": list(self.orphan_pages),
+            "depth_distribution": defaultdict(int),
+            "total_pages": len(self.internal_links),
+            "total_internal_links": sum(len(links) for links in self.internal_links.values())
+        }
+        
+        # Calculate depth distribution
+        for url in self.internal_links:
+            depth = self.page_depths.get(url, -1)
+            if depth >= 0:
+                metrics["depth_distribution"][depth] += 1
+        
+        return metrics
+
     def crawl_site(self, url: str, depth: int = 0, visited: set = None) -> dict:
         """Analyze page and its linked pages up to specified depth."""
         if visited is None:
             visited = set()
         
-        if url in visited or depth > 1:  # Limit to depth 1
+        if url in visited:  # Remove depth limit check
             return None
         
         visited.add(url)
@@ -382,6 +568,9 @@ class SiteCrawler:
             metadata = self.extract_metadata(soup, url)
             indexability = self.check_indexability(soup, url)
 
+            # Analyze internal linking structure
+            self.analyze_internal_links(url)
+
             # Process all links on the page
             links = soup.find_all('a', href=True)
             print(f"Found {len(links)} links on {url}")
@@ -414,19 +603,40 @@ class SiteCrawler:
             results["page_info"] = {
                 "url": url,
                 "indexability": indexability,
-                "metadata": metadata
+                "metadata": metadata,
+                "linking_metrics": self.get_page_linking_metrics(url)
             }
             
-            # Add crawl issues summary
-            results["crawl_issues_summary"] = dict(self.crawl_issues)
+            # Add crawl issues summary with default values for all metrics
+            results["crawl_issues_summary"] = {
+                "urls_missing_title_tag": self.crawl_issues.get("urls_missing_title_tag", 0),
+                "urls_missing_meta_description": self.crawl_issues.get("urls_missing_meta_description", 0),
+                "urls_missing_h1": self.crawl_issues.get("urls_missing_h1", 0),
+                "images_missing_alt_text": self.crawl_issues.get("images_missing_alt_text", 0),
+                "duplicate_titles": self.crawl_issues.get("duplicate_titles", 0),
+                "duplicate_meta_descriptions": self.crawl_issues.get("duplicate_meta_descriptions", 0),
+                "duplicate_content": self.crawl_issues.get("duplicate_content", 0),
+                "redirect_loops": self.technical_analyzer.redirect_loops
+            }
             results["canonical_issues_summary"] = dict(self.canonical_issues)
             
             # Add technical analysis results
-            results["technical_analysis"] = self.technical_analyzer.get_results()
+            technical_results = self.technical_analyzer.get_results()
+            linking_metrics = self.get_linking_metrics()
+            technical_results["orphan_pages"] = linking_metrics["orphan_pages"]
+            technical_results["depth_distribution"] = dict(linking_metrics["depth_distribution"])
+            results["technical_analysis"] = technical_results
             
-            # Crawl linked pages if at depth 0
+            # Add internal linking summary to issues
+            results["internal_linking_summary"] = {
+                "total_pages": linking_metrics["total_pages"],
+                "total_internal_links": linking_metrics["total_internal_links"],
+                "orphan_pages_count": len(linking_metrics["orphan_pages"])
+            }
+            
+            # Crawl linked pages if at depth 0, but limit to first 10 internal links
             if depth == 0:
-                for linked_url in internal_links:
+                for linked_url in internal_links:  # Remove [:10] limit
                     try:
                         linked_results = self.crawl_site(linked_url, depth + 1, visited)
                         if linked_results:
@@ -446,6 +656,171 @@ class SiteCrawler:
         """Close the browser."""
         if hasattr(self, 'driver'):
             self.driver.quit()
+
+    def analyze_structured_data(self, soup: BeautifulSoup, url: str) -> dict:
+        """Analyze structured data on a page."""
+        structured_data = {
+            "schema_types": [],
+            "implementation_method": None,
+            "validation_status": "valid",
+            "schema_content": None,
+            "errors": []
+        }
+        
+        # Check for JSON-LD
+        json_ld_scripts = soup.find_all('script', type='application/ld+json')
+        if json_ld_scripts:
+            structured_data["implementation_method"] = "json_ld"
+            self.structured_data["implementation_methods"]["json_ld"]["count"] += 1
+            
+            for script in json_ld_scripts:
+                try:
+                    schema = json.loads(script.string)
+                    schema_type = schema.get("@type", "")
+                    
+                    # Handle array of schemas
+                    if isinstance(schema, list):
+                        for item in schema:
+                            item_type = item.get("@type", "")
+                            if item_type in self.structured_data["schema_types"]:
+                                self.structured_data["schema_types"][item_type].append(url)
+                            else:
+                                self.structured_data["schema_types"]["other"].append(url)
+                            structured_data["schema_types"].append(item_type)
+                    else:
+                        if schema_type in self.structured_data["schema_types"]:
+                            self.structured_data["schema_types"][schema_type].append(url)
+                        else:
+                            self.structured_data["schema_types"]["other"].append(url)
+                        structured_data["schema_types"].append(schema_type)
+                    
+                    structured_data["schema_content"] = schema
+                    self.structured_data["implementation_methods"]["json_ld"]["valid"].append(url)
+                    
+                except json.JSONDecodeError as e:
+                    structured_data["validation_status"] = "invalid"
+                    structured_data["errors"].append(f"Invalid JSON-LD: {str(e)}")
+                    self.structured_data["implementation_methods"]["json_ld"]["invalid"].append(url)
+                    self.structured_data["implementation_methods"]["json_ld"]["errors"].append(str(e))
+        
+        # Check for Microdata
+        if not structured_data["implementation_method"]:
+            microdata = soup.find_all(attrs={"itemtype": True})
+            if microdata:
+                structured_data["implementation_method"] = "microdata"
+                self.structured_data["implementation_methods"]["microdata"]["count"] += 1
+                
+                for item in microdata:
+                    try:
+                        schema_type = item.get("itemtype", "").split("/")[-1]
+                        if schema_type in self.structured_data["schema_types"]:
+                            self.structured_data["schema_types"][schema_type].append(url)
+                        else:
+                            self.structured_data["schema_types"]["other"].append(url)
+                        structured_data["schema_types"].append(schema_type)
+                        self.structured_data["implementation_methods"]["microdata"]["valid"].append(url)
+                    except Exception as e:
+                        structured_data["validation_status"] = "invalid"
+                        structured_data["errors"].append(f"Invalid Microdata: {str(e)}")
+                        self.structured_data["implementation_methods"]["microdata"]["invalid"].append(url)
+                        self.structured_data["implementation_methods"]["microdata"]["errors"].append(str(e))
+        
+        # Check for RDFa
+        if not structured_data["implementation_method"]:
+            rdfa = soup.find_all(attrs={"vocab": True})
+            if rdfa:
+                structured_data["implementation_method"] = "rdfa"
+                self.structured_data["implementation_methods"]["rdfa"]["count"] += 1
+                
+                for item in rdfa:
+                    try:
+                        schema_type = item.get("vocab", "").split("/")[-1]
+                        if schema_type in self.structured_data["schema_types"]:
+                            self.structured_data["schema_types"][schema_type].append(url)
+                        else:
+                            self.structured_data["schema_types"]["other"].append(url)
+                        structured_data["schema_types"].append(schema_type)
+                        self.structured_data["implementation_methods"]["rdfa"]["valid"].append(url)
+                    except Exception as e:
+                        structured_data["validation_status"] = "invalid"
+                        structured_data["errors"].append(f"Invalid RDFa: {str(e)}")
+                        self.structured_data["implementation_methods"]["rdfa"]["invalid"].append(url)
+                        self.structured_data["implementation_methods"]["rdfa"]["errors"].append(str(e))
+        
+        # Update page coverage
+        self.structured_data["page_coverage"]["total_pages"] += 1
+        if structured_data["schema_types"]:
+            self.structured_data["page_coverage"]["pages_with_schema"] += 1
+        else:
+            self.structured_data["page_coverage"]["pages_without_schema"].append(url)
+        
+        return structured_data
+
+    def generate_output(self):
+        """Generate the three output files with the analysis results."""
+        # Technical Discovery Document
+        technical_discovery = {
+            "broken_links": self.technical_analyzer.broken_links,
+            "redirect_chains": self.technical_analyzer.redirect_chains,
+            "sitemap_issues": self.technical_analyzer.sitemap_issues,
+            "orphan_pages": self.orphan_pages,
+            "depth_distribution": self.get_linking_metrics()["depth_distribution"],
+            "structured_data": {
+                "schema_types": self.structured_data["schema_types"],
+                "implementation_methods": self.structured_data["implementation_methods"],
+                "page_coverage": self.structured_data["page_coverage"]
+            }
+        }
+        
+        with open(f"{self.domain}-technical-discovery.json", "w") as f:
+            json.dump(technical_discovery, f, indent=2)
+
+        # Generate issues file
+        issues = {
+            "crawl_issues": {
+                "broken_links": self.technical_analyzer.broken_links,
+                "redirect_chains": self.technical_analyzer.redirect_chains,
+                "sitemap_issues": self.technical_analyzer.sitemap_issues,
+                "orphan_pages": self.orphan_pages
+            },
+            "canonical_issues": {
+                "missing_canonicals": self.canonical_issues["missing_canonical"],
+                "invalid_canonicals": self.canonical_issues["invalid_canonical"],
+                "self_referencing": self.canonical_issues["self_referencing"]
+            },
+            "internal_linking": {
+                "total_pages": len(self.page_info),
+                "total_links": sum(len(info["internal_links"]) for info in self.page_info.values())
+            },
+            "structured_data_issues": {
+                "pages_without_schema": self.structured_data["page_coverage"]["pages_without_schema"],
+                "invalid_implementations": {
+                    "json_ld": len(self.structured_data["implementation_methods"]["json_ld"]["invalid"]),
+                    "microdata": len(self.structured_data["implementation_methods"]["microdata"]["invalid"]),
+                    "rdfa": len(self.structured_data["implementation_methods"]["rdfa"]["invalid"])
+                }
+            }
+        }
+        
+        with open(f"{self.domain}-issues.json", "w") as f:
+            json.dump(issues, f, indent=2)
+
+        # Page Info Document
+        page_info = {}
+        for url, data in self.page_data.items():
+            page_info[url] = {
+                "indexability": data["indexability"],
+                "metadata": data["metadata"],
+                "linking_metrics": {
+                    "outbound_links": len(data["outbound_links"]),
+                    "inbound_links": len(self.inbound_links.get(url, [])),
+                    "depth": self.page_depths.get(url, 0)
+                },
+                "structured_data": data["metadata"]["structured_data"]
+            }
+        
+        with open(f"{self.domain}-page-info.json", "w") as f:
+            json.dump(page_info, f, indent=2)
 
 def main():
     if len(sys.argv) != 2:
@@ -471,7 +846,8 @@ def main():
         issues_filename = f"{domain}-issues.json"
         issues_data = {
             "crawl_issues_summary": results["crawl_issues_summary"],
-            "canonical_issues_summary": results["canonical_issues_summary"]
+            "canonical_issues_summary": results["canonical_issues_summary"],
+            "internal_linking_summary": results["internal_linking_summary"]
         }
         with open(issues_filename, 'w', encoding='utf-8') as f:
             json.dump(issues_data, f, indent=2, ensure_ascii=False)
